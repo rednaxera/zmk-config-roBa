@@ -254,10 +254,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W      &kp E           &kp R             &kp T                                                                   &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S      &kp D           &kp F             &kp G         &kp LS(LG(S))                  &SL_BSL_AT                 &kp H        &kp J  &kp K      &kp L    &mns_pls_tld
-&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V             &kp B         &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N        &kp M  &kp COMMA  &kp DOT  &mkp MB1
-&Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &Lang_Switch  &lt_to_base 1 0                &kp SPACE                  &lt 3 ENTER                             &kp BACKSPACE
+&kp Q             &kp W      &kp E           &kp R             &kp T                                                                   &kp Y          &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S      &kp D           &kp F             &kp G         &kp LS(LG(S))                  &SL_BSL_AT                 &kp H          &kp J  &kp K      &kp L    &mns_pls_tld
+&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V             &kp B         &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N          &kp M  &kp COMMA  &kp DOT  &mkp MB1
+&Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &Lang_Switch  &lt 2 SPACE                    &lt 3 ENTER                &kp BACKSPACE                             &kp BACKSPACE
             >;
 
             sensor-bindings = <&zoom_encoder>;
