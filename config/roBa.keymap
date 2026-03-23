@@ -65,6 +65,172 @@
     };
 
     behaviors {
+         sym_left: sym_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp H &kp D &kp Y>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+
+        sym_right: sym_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp M &kp G &kp Y>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+
+        sym_kome: sym_kome {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp K &kp M &kp J>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+    
+        sym_star: sym_star {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp K &kp B &kp S>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+
+        sym_white_star: sym_white_star {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp S &kp B &kp S>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+
+        sym_white_circle: sym_white_circle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp I &kp M &kp R>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+
+        sym_double_circle: sym_double_circle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp N &kp M &kp R>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+
+        sym_black_circle: sym_black_circle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp K &kp M &kp R>
+                , <&kp SPACE>
+                , <&kp ENTER>;
+        };
+        shift_caps: shift_caps {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "Shift/Caps Lock Tap Dance";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+
+            label = "SHIFT_CAPS";
+        };
+
+        zoom_in: zoom_in {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(EQUAL)>;
+        };
+
+        zoom_out: zoom_out {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(MINUS)>;
+        };
+
+        small_bra: small_bra {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
+            label = "SMALL_BRA";
+        };
+
+        Big_Bra: Big_Bra {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
+            label = "BIG_BRA";
+        };
+
+        zoom_encoder: zoom_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&zoom_in>, <&zoom_out>;
+
+            tap-ms = <5>;
+        };
+
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <100>;
+        };
+
+        volume_encoder: volume_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp C_VOLUME_UP>, <&kp C_VOL_DN>;
+
+            tap-ms = <5>;
+        };
+
+        rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        BS_DEL: BS_DEL {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BS_DEL";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DEL>, <&key_repeat>;
+        };
+
+        Ctrl_Esc: Ctrl_Esc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CTRL_ESC";
+            #binding-cells = <0>;
+            bindings = <&kp RCTRL>, <&kp ESCAPE>;
+        };
+
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
