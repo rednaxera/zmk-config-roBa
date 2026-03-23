@@ -231,12 +231,11 @@
             bindings = <&kp RCTRL>, <&kp ESCAPE>;
         };
 
-        lt_to_layer_0: lt_to_layer_0 {
+       lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
+            #binding-cells = <1>;
             bindings = <&mo>, <&to_layer_0>;
-
-            #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
 
