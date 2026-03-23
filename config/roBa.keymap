@@ -65,15 +65,12 @@
     };
 
     behaviors {
-         sym_left: sym_left {
+        sym_left: sym_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp H &kp D &kp Y>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp H &kp D &kp Y &kp SPACE &kp ENTER>;
         };
 
         sym_right: sym_right {
@@ -81,10 +78,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp M &kp G &kp Y>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp M &kp G &kp Y &kp SPACE &kp ENTER>;
         };
 
         sym_kome: sym_kome {
@@ -92,21 +86,15 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp K &kp M &kp J>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp K &kp M &kp J &kp SPACE &kp ENTER>;
         };
-    
+
         sym_star: sym_star {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp K &kp B &kp S>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp K &kp B &kp S &kp SPACE &kp ENTER>;
         };
 
         sym_white_star: sym_white_star {
@@ -114,10 +102,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp S &kp B &kp S>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp S &kp B &kp S &kp SPACE &kp ENTER>;
         };
 
         sym_white_circle: sym_white_circle {
@@ -125,10 +110,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp I &kp M &kp R>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp I &kp M &kp R &kp SPACE &kp ENTER>;
         };
 
         sym_double_circle: sym_double_circle {
@@ -136,10 +118,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp N &kp M &kp R>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp N &kp M &kp R &kp SPACE &kp ENTER>;
         };
 
         sym_black_circle: sym_black_circle {
@@ -147,11 +126,9 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings
-                = <&kp K &kp M &kp R>
-                , <&kp SPACE>
-                , <&kp ENTER>;
+            bindings = <&kp K &kp M &kp R &kp SPACE &kp ENTER>;
         };
+
         shift_caps: shift_caps {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Lock Tap Dance";
@@ -192,7 +169,8 @@
             #sensor-binding-cells = <0>;
             bindings = <&zoom_in>, <&zoom_out>;
 
-            tap-ms = <5>;
+            tap-ms = <2>;
+            label = "ZOOM_ENCODER";
         };
 
         scroll_encoder: scroll_encoder {
@@ -224,7 +202,7 @@
             #binding-cells = <0>;
             bindings = <&kp RCTRL>, <&kp ESCAPE>;
         };
-        
+
         lt_to_base: lt_to_base {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -276,21 +254,21 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W      &kp E           &kp R             &kp T                                                                   &kp Y          &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S      &kp D           &kp F             &kp G         &kp LS(LG(S))                  &SL_BSL_AT                 &kp H          &kp J  &kp K      &kp L    &mns_pls_tld
-&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V             &kp B         &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N          &kp M  &kp COMMA  &kp DOT  &mkp MB1
-&Cln_Str_Amp  &lt 1 TAB  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &Lang_Switch  &lt_to_base 1 0  &kp SPACE  &lt 3 ENTER  &kp BACKSPACE  &mkp MB2
+&kp Q             &kp W      &kp E           &kp R             &kp T                                                                   &kp Y        &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S      &kp D           &kp F             &kp G         &kp LS(LG(S))                  &SL_BSL_AT                 &kp H        &kp J  &kp K      &kp L    &mns_pls_tld
+&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V             &kp B         &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N        &kp M  &kp COMMA  &kp DOT  &mkp MB1
+&Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &Lang_Switch  &lt_to_base 1 0                &kp SPACE                  &lt 3 ENTER                             &kp BACKSPACE
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&zoom_encoder>;
         };
 
         FUNCTION {
             bindings = <
-&kp F1   &kp F2   &kp F3   &kp F4   &kp F5                       &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-&kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &trans      &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans   &trans   &trans   &trans   &trans   &trans      &trans  &trans        &trans        &trans        &trans        &trans
-&trans   &trans   &trans   &trans   &trans   &trans      &trans  &trans                                                  &trans
+&kp F1     &kp F2      &kp F3     &kp F4           &kp F5                                 &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+&kp F11    &kp F12     &kp F13    &kp F14          &kp F15            &trans      &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&sym_left  &sym_right  &sym_kome  &sym_white_star  &sym_white_circle  &trans      &trans  &trans        &trans        &trans        &trans        &trans
+&trans     &trans      &trans     &trans           &trans             &trans      &trans  &trans                                                  &trans
             >;
         };
 
