@@ -247,6 +247,26 @@
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp STAR>, <&kp AMPERSAND>;
         };
+
+        HT_Mouse: HT_Mouse {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_MOUSE";
+            bindings = <&kp>, <&mkp>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+        };
+
+        HT_Lan_Esc: HT_Lan_Esc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_LAN_ESC";
+            bindings = <&kp>, <&Lang_Switch>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -254,10 +274,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W      &kp E           &kp R             &kp T                                                                   &kp Y          &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S      &kp D           &kp F             &kp G         &kp LS(LG(S))                  &SL_BSL_AT                 &kp H          &kp J  &kp K      &kp L    &mns_pls_tld
-&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V             &kp B         &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N          &kp M  &kp COMMA  &kp DOT  &mkp MB1
-&Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &Lang_Switch  &lt 2 SPACE                    &lt 3 ENTER                &kp BACKSPACE                             &kp BACKSPACE
+&kp Q             &kp W      &kp E           &kp R             &kp T                                                                           &kp Y          &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S      &kp D           &kp F             &kp G                 &kp LS(LG(S))                  &SL_BSL_AT                 &kp H          &kp J  &kp K      &kp L    &mns_pls_tld
+&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V             &kp B                 &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N          &kp M  &kp COMMA  &kp DOT  &mkp MB1
+&Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &HT_Lan_Esc ESCAPE 0  &lt 2 SPACE                    &lt 3 ENTER                &kp BACKSPACE                             &HT_Mouse DELETE MB2
             >;
 
             sensor-bindings = <&zoom_encoder>;
@@ -270,6 +290,8 @@
 &sym_left  &sym_right  &sym_kome  &sym_white_star  &sym_white_circle  &trans      &trans  &trans        &trans        &trans        &trans        &trans
 &trans     &trans      &trans     &trans           &trans             &trans      &trans  &trans                                                  &trans
             >;
+
+            sensor-bindings = <&scroll_encoder>;
         };
 
         NUM {
@@ -279,6 +301,8 @@
 &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp SLASH   &kp BACKSPACE  &kp EQUAL                    &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &trans
 &kp KP_NUMBER_0  &trans           &trans           &trans      &trans         &trans                       &trans          &trans                                                                     &trans
             >;
+
+            sensor-bindings = <&volume_encoder>;
         };
 
         ARROW {
