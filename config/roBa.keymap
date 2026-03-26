@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
@@ -65,6 +67,14 @@
     };
 
     behaviors {
+        encoder_msc_down_up: encoder_msc_down_up {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ENCODER_MSC_DOWN_UP";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            tap-ms = <20>;
+        };
+
         sym_left: sym_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -294,7 +304,7 @@
 &Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp RIGHT_CONTROL  &HT_Lan_Esc ESCAPE 0  &lt 2 SPACE                    &lt 3 ENTER                &mkp MB1                          &kp BACKSPACE
             >;
 
-            sensor-bindings = <&zoom_encoder>;
+            sensor-bindings = <&encoder_msc_down_up>;
         };
 
         FUNCTION {
@@ -305,7 +315,7 @@
 &trans     &trans      &trans     &trans           &trans             &trans      &trans  &trans                                                  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_UP>;
+            sensor-bindings = <&zoom_encoder>;
         };
 
         NUM {
