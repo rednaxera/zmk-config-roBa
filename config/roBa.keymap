@@ -238,25 +238,25 @@
             bindings = <&kp LA(GRAVE)>, <&kp LANG_HANGEUL>, <&kp LANGUAGE_2>;
         };
 
-        SL_BSL_AT: SL_BSL_AT {
+        At_Bsl: At_Bsl {
             compatible = "zmk,behavior-tap-dance";
-            label = "SL_BSL_AT";
+            label = "AT_BSL";
             #binding-cells = <0>;
-            bindings = <&kp SLASH>, <&kp NON_US_BACKSLASH>, <&kp AT_SIGN>;
+            bindings = <&kp AT_SIGN>, <&kp NON_US_BACKSLASH>;
         };
 
-        mns_pls_tld: mns_pls_tld {
+        mns_tld: mns_tld {
             compatible = "zmk,behavior-tap-dance";
-            label = "MNS_PLS_TLD";
+            label = "MNS_TLD";
             #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp PLUS>, <&kp LS(GRAVE)>;
+            bindings = <&kp MINUS>, <&kp LS(GRAVE)>;
         };
 
-        Cln_Str_Amp: Cln_Str_Amp {
+        Sl_Str_Amp: Sl_Str_Amp {
             compatible = "zmk,behavior-tap-dance";
-            label = "CLN_STR_AMP";
+            label = "SL_STR_AMP";
             #binding-cells = <0>;
-            bindings = <&kp COLON>, <&kp STAR>, <&kp AMPERSAND>;
+            bindings = <&kp SLASH>, <&kp STAR>, <&kp AMPERSAND>;
         };
 
         HT_Mouse: HT_Mouse {
@@ -286,11 +286,11 @@
             bindings = <&kp COMMA>, <&kp SEMI>;
         };
 
-        Pr_cl: Pr_cl {
+        Col_Pls: Col_Pls {
             compatible = "zmk,behavior-tap-dance";
-            label = "PR_CL";
+            label = "COL_PLS";
             #binding-cells = <0>;
-            bindings = <&kp PERIOD>, <&kp COLON>;
+            bindings = <&kp COLON>, <&kp PLUS>;
         };
 
         HTmk_behavior: HTmk_behavior {
@@ -302,6 +302,13 @@
             tapping-term-ms = <200>;
             flavor = "balanced";
         };
+
+        Pr_Cm: Pr_Cm {
+            compatible = "zmk,behavior-tap-dance";
+            label = "PR_CM";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp COMMA>;
+        };
     };
 
     keymap {
@@ -309,10 +316,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W      &kp E           &kp R              &kp T                                                                           &kp Y     &kp U  &lt 5 I  &kp O   &kp P
-&kp A             &kp S      &kp D           &kp F              &kp G                 &kp LS(LG(S))                  &SL_BSL_AT                 &kp H     &kp J  &kp K    &kp L   &mns_pls_tld
-&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V              &kp B                 &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N     &kp M  &Cm_Sc   &Pr_cl  &HT_Mouse RIGHT_GUI MB2
-&Cln_Str_Amp      &lt 1 TAB  &kp LEFT_SHIFT  &kp RIGHT_CONTROL  &HT_Lan_Esc ESCAPE 0  &lt 2 SPACE                    &lt 3 ENTER                &mkp MB1                          &kp BACKSPACE
+&kp Q             &kp W      &kp E           &kp R              &kp T                                                                           &kp Y     &kp U  &lt 5 I  &kp O     &kp P
+&kp A             &kp S      &kp D           &kp F              &kp G                 &kp LS(LG(S))                  &At_Bsl                    &kp H     &kp J  &kp K    &kp L     &mns_tld
+&mt LEFT_SHIFT Z  &kp X      &kp C           &kp V              &kp B                 &Ht_kp RIGHT_ALT LEFT_ALT      &Ht_kp RIGHT_ALT LEFT_ALT  &kp N     &kp M  &Pr_Cm   &Col_Pls  &HT_Mouse RIGHT_GUI MB2
+&Sl_Str_Amp       &lt 1 TAB  &kp LEFT_SHIFT  &kp RIGHT_CONTROL  &HT_Lan_Esc ESCAPE 0  &lt 2 SPACE                    &lt 3 ENTER                &mkp MB1                            &kp BACKSPACE
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -332,8 +339,8 @@
         NUM {
             bindings = <
 &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PERIOD  &kp ENTER                                                   &kp AMPERSAND    &kp ASTERISK  &kp N9     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp COLON   &mns_pls_tld   &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp DOLLAR       &kp PERCENT   &kp CARET  &kp DOLLAR            &kp PERCENT
-&kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &SL_BSL_AT  &kp BACKSPACE  &kp EQUAL                    &trans          &kp EXCLAMATION  &kp AT_SIGN   &kp HASH   &kp RIGHT_BRACE       &trans
+&kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp COLON   &mns_tld       &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp DOLLAR       &kp PERCENT   &kp CARET  &kp DOLLAR            &kp PERCENT
+&kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &At_Bsl     &kp BACKSPACE  &kp EQUAL                    &trans          &kp EXCLAMATION  &kp AT_SIGN   &kp HASH   &kp RIGHT_BRACE       &trans
 &kp KP_NUMBER_0  &trans           &trans           &trans      &trans         &trans                       &trans          &trans                                                          &kp DELETE
             >;
 
